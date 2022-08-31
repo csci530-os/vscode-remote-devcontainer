@@ -80,6 +80,22 @@ are mostly the same whether you are using Windows, MAC OS or Linux.
 	to get WSL 2 installed.  Then you should be able to (re)start Docker Desktop successfully with it using
 	WSL 2.
 	
+	**NOTE**: You may need to enable hardware virtualizaiton if you own an Intel / AMD PC.
+	
+    When booting up, enter your system BIOS
+
+    - [How to Enter the BIOS on Any PC: Access Keys by Manufacturer](https://www.tomshardware.com/reviews/bios-keys-to-access-your-firmware,5732.html)
+
+	Usually the `F2` key should work, but if not there should usually be
+	a message on your first boot screen telling you what the BIOS access
+	key is.
+
+	In your BIOS, find the setting for hardware Virtualization
+
+	- [Enabling Virtualization in your PC BIOS](https://bce.berkeley.edu/enabling-virtualization-in-your-pc-bios.html)
+
+
+
 - **Linux:** Follow the official install instructions for 
   [Docker CE](https://hub.docker.com/search?offering=community&operating_system=linux&platform=&q=&type=edition) 
   for your distribution. 
@@ -121,6 +137,23 @@ are mostly the same whether you are using Windows, MAC OS or Linux.
 	 will differ depending on your operating system.  This file is in a hidden directory (starts with a .), so you may not
 	 be able to see it in a file browser on your system unless you enable viewing hidden files/directories.  Find the public
 	 key, and copy it.  Then create a new ssh key in GitHub and paste in this public key.
+	 
+  5. If you have never connected to Github before using ssh, you should ensure that Github is an known host and that your ssh
+     key access that you just configured is working.  Do the following to test this:
+     ```
+	 $ ssh git@github.com
+     The authenticity of host 'github.com (140.82.112.4)' can't be established.
+     ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.
+     Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+     Warning: Permanently added 'github.com,140.82.112.4' (ECDSA) to the list of known hosts.
+     PTY allocation request failed on channel 0
+     Hi tamucstudent! You've successfully authenticated, but GitHub does not provide shell access.
+     Connection to github.com closed.
+	 
+	 ```
+	 And say 'yes' if prompted to add Github as a known host as shown here.  If it says you have successfully
+	 authenticated, then you probably have configured your ssh key correctly for Github use.
+	 
 <br />
 <br />
 
